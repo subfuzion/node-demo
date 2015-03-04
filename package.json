@@ -1,0 +1,30 @@
+{
+  "name": "node-demo",
+  "version": "1.0.0",
+  "description": "Demo for BayNode meetup",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tonypujals/node-demo.git"
+  },
+  "keywords": [
+    "node",
+    "demo",
+    "express"
+  ],
+  "author": "Tony Pujals <tony@subfuzion.com> (http://twitter.com/subfuzion)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonypujals/node-demo/issues"
+  },
+  "homepage": "https://github.com/tonypujals/node-demo",
+  "dependencies": {
+    "express": "^4.12.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
+}
