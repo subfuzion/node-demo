@@ -68,5 +68,52 @@ describe('basic tests', function() {
         });
   });
 
+  // test expected errors
+    it('missing name in object: should return error (400)', function (done) {
+
+        request(app)
+            .post('/users')
+            .send( { } )
+            .expect(400)
+            .end(function(err, res) {
+
+                if (err) return done(err);
+
+                var result = res.body;
+
+                assert.equal(result.success, false);
+
+                assert.equal(result.reason, 'missing user name');
+
+                done();
+            });
+
+    });
+
+    it('user not found: should return error (404)', function (done) {
+
+        var id = "";
+        var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < 8; i++)
+            id += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        request(app)
+            .get('/users/' + id)
+            .expect(404)
+            .end(function(err, res) {
+
+                if (err) return done(err);
+
+                var result = res.body;
+
+                assert.equal(result.success, false);
+
+                assert.equal(result.reason, 'user id not found');
+
+                done();
+            });
+    });
+
+
 });
 
